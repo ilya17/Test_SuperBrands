@@ -1,0 +1,129 @@
+:host {
+    width: 47%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.button-wrapper {
+    display: flex;
+
+    &__employee {
+        height: 57px;
+        margin-right: 10px;
+        padding: 10px 10px 0;
+        border-radius: 30px 30px 0px 0px;
+        box-shadow: 0px 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    &__button {
+        width: 52px;
+        height: 52px;
+        background-color: rgba(0, 0, 0, 0.05);
+        box-shadow: none;
+        color: rgba(0, 0, 0, 0.32);;
+    }
+
+    &__image {
+        height: 45px;
+        width: 45px;
+        overflow: hidden;
+        border-radius: 25px;
+        background-color: rgba(0, 0, 0, 0.05);
+        cursor: pointer;
+
+        img {
+            display: block;
+            margin: 10px auto;
+        }
+    } 
+
+    &__text {
+        margin-left: 16px;
+        font-size: 15px;
+        line-height: 16px;
+    }
+}
+
+.no-employee-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 438px;
+    margin-top: 16px;
+    padding: 0 77px;
+    text-align: center;
+    background-color: #F2F2F2;
+    border: 1px dashed rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+
+    &__title {
+        margin-bottom: 18px;
+        font-style: normal;
+        font-weight: bold;
+        letter-spacing: 2px;
+        font-size: 16px;
+        text-transform: uppercase;
+        line-height: 16px;
+    }
+
+    &__text {
+        margin-bottom: 24px;
+        font-size: 15px;
+        line-height: 22px;
+        color: rgba(0, 0, 0, 0.44); 
+    }
+
+    &__button {
+        cursor: pointer;
+    }
+}
+
+.employee-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 415px;
+    padding: 25px 24px 0;
+    border-radius: 0px 6px 6px 6px;
+    box-shadow: 0px 0 15px rgba(0,0,0,0.1);;
+
+    &__title {
+        font-size: 13px;
+        line-height: 16px;
+        color: rgba(0, 0, 0, 0.32);
+    }
+
+    &__position {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+
+        &-container {
+            display: flex;
+            align-items: center;
+        }
+
+        &-name {
+            margin-left: 16px;
+            margin-right: 16px;
+        }
+
+        &-shops {
+            color: #007AFF;;
+        }
+
+        &-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            background-color: rgba(0, 0, 0, 0.05);
+
+            img {
+                margin: 5px 6px;
+            }
+        }
+    }
+}

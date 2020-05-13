@@ -1,1 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { 
+    height: 100%
+}
+body { 
+    margin: 0;
+    font-family: Roboto
+}
+
+.shops-wrpapper__shop {
+    .mat-list-icon {
+        display: flex;
+        align-items: center;
+
+        button {
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+    }
+
+    &-icon {
+        padding: 11px !important;
+        font-weight: 500;
+        align-items: center;
+        margin-left: 10px;
+        justify-content: center;
+        font-size: 13px !important;
+        line-height: 20px;
+        color: #FFFFFF;
+        background-color: rgba(0, 0, 0, 0.72);
+    }
+
+    .mat-list-text {
+        margin-left: 16px;
+        .shops-wrpapper__shop-name {
+            font-weight: 500 !important;
+            font-size: 14px !important;
+            line-height: 16px;
+        }
+
+        .shops-wrpapper__shop-address {
+            margin-top: 4px !important;
+            font-size: 11px !important;
+            line-height: 12px;
+            color: rgba(0, 0, 0, 0.32);
+        }
+    }
+}
+
+.button-wrapper__button {
+    .mat-button-wrapper {
+        padding: 0px !important;
+    }
+}

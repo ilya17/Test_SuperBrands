@@ -1,0 +1,63 @@
+:host {
+    width: 47%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+
+    &__button {
+        width: 220px;
+        margin-left: auto;
+        margin-bottom: 16px;
+        padding: 12px 24px;
+        font-size: 14px;
+        line-height: 24px;
+
+        &-icon {
+            margin-left: 13px;
+        }
+    }
+}
+
+.shops-wrpapper {
+    display: flex;
+    flex-direction: column;
+    height: 396px;
+    padding: 22px 25px;
+    border: 1px dashed rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+
+    &__info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 24px;
+        font-size: 13px;
+        line-height: 16px;
+
+        &-text {
+            margin-left: 8px;
+        }
+
+        &-svg {
+            display: flex;
+            align-items: center;
+            width: 24px;
+            height: 24px;
+            margin-left: 12px;
+            background-color: rgba(255,149,0, 0.1);
+            border-radius: 50px;
+
+            img {
+                margin-left: 5px;
+                margin-bottom: 3px;
+            }
+        }
+
+    }
+
+    &__shop {
+        height: 300px;
+        overflow: auto;
+    }
+}

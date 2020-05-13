@@ -1,0 +1,39 @@
+<div class="wrapper">
+    <div class="button-wrapper">
+        <ng-container *ngIf="selectedEmployees.length">
+            <div *ngFor="let employee of selectedEmployees" class="button-wrapper__employee">
+                <div class="button-wrapper__image">
+                    <img src="../../assets/image/employees/{{employee.logo}}.png">
+                </div>
+            </div>
+        </ng-container>
+        <div>
+            <button (click)="addEmployee()" class="button-wrapper__button" mat-fab >
+                <mat-icon>add</mat-icon>
+            </button>
+            <span *ngIf="!selectedEmployees.length" class="button-wrapper__text">Добавить специалиста</span>
+        </div>
+    </div>
+    <div *ngIf="!selectedEmployees.length" class="no-employee-wrapper">
+        <span class="no-employee-wrapper__title">Специалист не назначен</span>
+        <span class="no-employee-wrapper__text">Чтобы начать работу с нераспределенными магазинами, вам необходимо добавить хотя бы одного специалиста</span>
+        <div (click)="addEmployee()" class="no-employee-wrapper__button">
+            <img src="../../assets/image/add.svg">
+        </div>
+    </div>
+    <div *ngIf="selectedEmployees.length" class="employee-wrapper">
+        <span class="employee-wrapper__title">Специалист</span>
+        <div class="employee-wrapper__position">
+            <div class="employee-wrapper__position-container">
+                <div class="employee-wrapper__position-image">
+                    <img src="..//../assets/image/employees/4.png">
+                </div>
+                <span class="employee-wrapper__position-name">Самойлов Алексей</span>
+                <span class="employee-wrapper__position-shops">0 магазинов</span>
+            </div>
+            <div>
+                <img src="../../assets/image/basket.svg">
+            </div>
+        </div>
+    </div>
+</div>
