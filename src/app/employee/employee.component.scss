@@ -90,7 +90,7 @@
     box-shadow: 0px 0 15px rgba(0,0,0,0.1);;
 
     &__title {
-        font-size: 13px;
+        font-size: 16px;
         line-height: 16px;
         color: rgba(0, 0, 0, 0.32);
     }
@@ -100,10 +100,15 @@
         justify-content: space-between;
         align-items: center;
         margin-top: 10px;
+        margin-bottom: 30px;
 
         &-container {
             display: flex;
             align-items: center;
+        }
+
+        &-basket {
+            cursor: pointer;
         }
 
         &-name {
@@ -125,5 +130,57 @@
                 margin: 5px 6px;
             }
         }
+    }
+
+    &__shop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 34px;
+    }
+
+    &__warning {
+        display: flex;
+        align-items: center;
+        margin-top: 18px;
+
+        &-svg {
+            display: flex;
+            align-items: center;
+            width: 24px;
+            height: 24px;
+            margin-left: 17px;
+            background-color: rgba(255,149,0, 0.1);
+            border-radius: 50px;
+
+            img {
+                margin-left: 5px;
+                margin-bottom: 3px;
+            }
+        }
+    }
+}
+
+.employee-shops {
+    height: 220px;
+    margin-top: 20px;
+    overflow: auto;
+}
+
+.shops-wrpapper {
+    display: flex;
+    flex-direction: column;
+    height: 396px;
+    padding: 22px 25px;
+    border: 1px dashed rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+
+    &__shop {
+        width: 100vw;
+    }
+
+    &__remove {
+        cursor: pointer;
+        color: rgba(0, 0, 0, 0.1);
     }
 }
