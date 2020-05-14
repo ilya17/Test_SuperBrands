@@ -11,7 +11,9 @@ import { Shop } from '../shared/model/shop';
 })
 export class ShopsComponent implements OnInit, OnDestroy {
 
-  public shops = [];
+  public shops: Shop[] = [];
+  public removedShop: Shop;
+  public isShow: boolean;
 
   private destroyed$: Subject<void> = new Subject();
 
@@ -20,7 +22,9 @@ export class ShopsComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.getShops()
+    this.isEmployees();
+    this.getShops();
+    this.getRemovedShop()
   }
 
   ngOnDestroy(): void {
@@ -55,4 +59,33 @@ export class ShopsComponent implements OnInit, OnDestroy {
     this.shopsService.shop.next(shop)
   }
 
+  /**
+   * Получаем удаленный магазин пользователя
+   */
+  getRemovedShop(): void {
+    this.shopsService.removeShopEmployee
+    .pipe(takeUntil(this.destroyed$))
+    .subscribe((res: Shop[]) => {
+      this.addRemovedShop(res)
+    })
+  }
+
+  /**
+   * Добавляем удаленный магазин пользователя
+   */
+  addRemovedShop(removedShop: Shop[]): void {
+    this.shops.push(...removedShop);
+  }
+
+  /**
+   * Проверяем есть ли сотрудники в списке
+   */
+  isEmployees(): void {
+    this.shopsService.isSelectedEmployees
+    .pipe(takeUntil(this.destroyed$))
+    .subscribe(res => {
+      this.isShow = res;
+    })
+  }
 }
+
