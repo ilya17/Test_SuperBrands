@@ -9,6 +9,8 @@ import { map } from 'rxjs/operators';
 })
 export class ShopsService {
   public shop: BehaviorSubject<Shop> = new BehaviorSubject(null);
+  public removeShopEmployee: BehaviorSubject<Shop[]> = new BehaviorSubject([]);
+  public isSelectedEmployees: BehaviorSubject<boolean> = new BehaviorSubject(false);
   public apiHost = '../../assets/shops.json'
 
   private destroyed$: Subject<void> = new Subject();

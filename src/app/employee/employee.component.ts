@@ -15,8 +15,7 @@ import { Shop } from '../shared/model/shop';
 export class EmployeeComponent implements OnInit, OnDestroy {
 
   public selectedEmployees = [];
-  public chosenEmployee;
-  public shop: Shop;
+  public chosenEmployee: Employee;
   public numbersOfShops = 0;
 
   private destroyed$: Subject<void> = new Subject()
@@ -50,6 +49,7 @@ export class EmployeeComponent implements OnInit, OnDestroy {
         this.chosenEmployee = result;
       }
     })
+    this.shopsService.isSelectedEmployees.next(true)
   }
 
   /**
@@ -62,23 +62,22 @@ export class EmployeeComponent implements OnInit, OnDestroy {
   /**
    * Получаем магазин
    */
-  getShop(): void{
+  getShop(): void {
     this.shopsService.shop
     .pipe(takeUntil(this.destroyed$))
     .subscribe(res => {
-      this.shop = res;
-      this.addShopToEmployee();
+      this.addShopToEmployee(res);
     })
   }
 
   /**
    * Добавляем магазин к сотруднику
    */
-  addShopToEmployee(): void{
+  addShopToEmployee(gotShop: Shop): void{
     this.selectedEmployees.forEach(employee => {
       Object.keys(this.chosenEmployee).forEach(key => {
         if (this.chosenEmployee[key] === employee.id) {
-          employee.shops.push(this.shop);
+          employee.shops.push(gotShop);
         }
       })
     })
@@ -88,9 +87,20 @@ export class EmployeeComponent implements OnInit, OnDestroy {
    * Удалить сотрудника
    */
   removeEmployee(id: number):void {
+    this.shopsService.removeShopEmployee.next(this.chosenEmployee.shops)
     this.selectedEmployees = this.selectedEmployees.filter(employee => id !== employee.id);
     if (this.selectedEmployees.length) {
       this.choiceEmployee(this.selectedEmployees[0].id)
+    } else {
+      this.shopsService.isSelectedEmployees.next(false)
     }
+  }
+
+  /**
+   * Удалить сотрудника
+   */
+  removeShop(shop): void {
+    this.shopsService.removeShopEmployee.next([shop]);
+    this.chosenEmployee.shops = this.chosenEmployee.shops.filter(item => item.id !== shop.id)
   }
 }

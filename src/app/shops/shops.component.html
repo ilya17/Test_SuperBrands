@@ -19,7 +19,7 @@
             <mat-list>
                 <mat-list-item *ngFor="let shop of shops">
                     <div mat-list-icon>
-                        <button (click)="moveShop(shop.id)">
+                        <button [disabled]="!isShow" (click)="moveShop(shop.id)">
                             <svg width="15" height="7" viewBox="0 0 15 7" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M4.26562 0.0208092L4.98438 0.708309L2.78906 2.99737H9V3.99737H2.80859L4.98438 6.27081L4.26562 6.95831L0.933594 3.48956L4.26562 0.0208092Z" fill="#424242"/>
                                 <path d="M11.0038 2.99737H10.0049V3.99737H11.0038V2.99737Z" fill="#424242"/>

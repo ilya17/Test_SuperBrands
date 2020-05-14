@@ -1,7 +1,7 @@
 <div class="wrapper">
     <div class="button-wrapper">
         <ng-container *ngIf="selectedEmployees.length">
-            <div *ngFor="let employee of selectedEmployees" [matBadgeHidden]="!employee.shops.length" [matBadge]="employee.shops.length" class="button-wrapper__employee">
+            <div [ngClass]="{'tab-color': employee.id === chosenEmployee.id}" *ngFor="let employee of selectedEmployees" [matBadgeHidden]="!employee.shops.length" [matBadge]="employee.shops.length" class="button-wrapper__employee">
                 <div (click)="choiceEmployee(employee.id)" class="button-wrapper__image">
                     <img src="../../assets/image/employees/{{employee.logo}}.png">
                 </div>
@@ -41,7 +41,7 @@
                         <div class="shops-wrpapper__shop-icon" mat-list-icon>BS</div>
                         <div class="shops-wrpapper__shop-name" mat-line>{{shop.name}}</div>
                         <div class="shops-wrpapper__shop-address" mat-line>{{shop.fullAdress}}</div>
-                        <mat-icon class="shops-wrpapper__remove">remove_circle_outline</mat-icon>
+                        <mat-icon (click)="removeShop(shop) "class="shops-wrpapper__remove">remove_circle_outline</mat-icon>
                     </mat-list-item>
                 </mat-list>
             </div>
