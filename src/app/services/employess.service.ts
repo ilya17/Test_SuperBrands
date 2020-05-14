@@ -11,8 +11,6 @@ export class EmployessService {
 
   public apiHost = '../../assets/employees.json'
 
-  private employees: Observable<Employee[]>
-
   constructor(private http: HttpClient) { }
 
   /**

@@ -13,9 +13,6 @@ export class ShopsService {
   public isSelectedEmployees: BehaviorSubject<boolean> = new BehaviorSubject(false);
   public apiHost = '../../assets/shops.json'
 
-  private destroyed$: Subject<void> = new Subject();
-  private shops: Observable<Shop[]>
-
   constructor(private http: HttpClient) { }
 
   /**
