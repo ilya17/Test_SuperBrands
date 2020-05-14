@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { Shop } from '../shared/model/shop';
 import { map } from 'rxjs/operators';
 
@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ShopsService {
-
+  public shop: BehaviorSubject<Shop> = new BehaviorSubject(null);
   public apiHost = '../../assets/shops.json'
 
   private destroyed$: Subject<void> = new Subject();

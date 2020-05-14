@@ -40,10 +40,19 @@ export class ShopsComponent implements OnInit, OnDestroy {
   }
 
   /**
-   * Закрепить магазин за сотрудником
+   * Удаляем выранный магазин из списка
    */
-  moveShop(id: number){
+  moveShop(id: number): void {
+    this.sendShop(id);
     this.shops = this.shops.filter(shop => id !== shop.id)
+  }
+
+  /**
+   * Удаляем выранный магазин из списка
+   */
+  sendShop(id: number): void {
+    const shop = this.shops.find(shop => id === shop.id);
+    this.shopsService.shop.next(shop)
   }
 
 }
