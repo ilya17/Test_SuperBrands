@@ -1,8 +1,8 @@
 <div class="wrapper">
     <div class="button-wrapper">
         <ng-container *ngIf="selectedEmployees.length">
-            <div [ngClass]="{'tab-color': employee.id === chosenEmployee.id}" *ngFor="let employee of selectedEmployees" [matBadgeHidden]="!employee.shops.length" [matBadge]="employee.shops.length" class="button-wrapper__employee">
-                <div (click)="choiceEmployee(employee.id)" class="button-wrapper__image">
+            <div (click)="choiceEmployee(employee.id)" [ngClass]="{'tab-color--active': employee.id === chosenEmployee.id, 'tab-color--inactive': employee.id !== chosenEmployee.id}" *ngFor="let employee of selectedEmployees" [matBadgeHidden]="!employee.shops.length" [matBadge]="employee.shops.length" class="button-wrapper__employee">
+                <div class="button-wrapper__image">
                     <img src="../../assets/image/employees/{{employee.logo}}.png">
                 </div>
             </div>
