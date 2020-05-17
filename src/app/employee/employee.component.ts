@@ -103,4 +103,12 @@ export class EmployeeComponent implements OnInit, OnDestroy {
     this.shopsService.removeShopEmployee.next([shop]);
     this.chosenEmployee.shops = this.chosenEmployee.shops.filter(item => item.id !== shop.id)
   }
+
+  /**
+   * Склоняем существительное в зависимости от числительного
+   */
+  getWord(number: number, word:string[]): string {
+    const cases = [2, 0, 1, 1, 1, 2];  
+    return word[ (number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5] ]; 
+  }
 }

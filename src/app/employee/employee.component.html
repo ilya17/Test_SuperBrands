@@ -1,7 +1,13 @@
 <div class="wrapper">
     <div class="button-wrapper">
         <ng-container *ngIf="selectedEmployees.length">
-            <div (click)="choiceEmployee(employee.id)" [ngClass]="{'tab-color--active': employee.id === chosenEmployee.id, 'tab-color--inactive': employee.id !== chosenEmployee.id}" *ngFor="let employee of selectedEmployees" [matBadgeHidden]="!employee.shops.length" [matBadge]="employee.shops.length" class="button-wrapper__employee">
+            <div 
+                (click)="choiceEmployee(employee.id)" 
+                [ngClass]="{'tab-color--active': employee.id === chosenEmployee.id, 'tab-color--inactive': employee.id !== chosenEmployee.id}"
+                *ngFor="let employee of selectedEmployees" 
+                [matBadgeHidden]="!employee.shops.length" 
+                [matBadge]="employee.shops.length" 
+                class="button-wrapper__employee">
                 <div class="button-wrapper__image">
                     <img src="../../assets/image/employees/{{employee.logo}}.png">
                 </div>
@@ -29,7 +35,7 @@
                     <img src="..//../assets/image/employees/{{chosenEmployee.logo}}.png">
                 </div>
                 <span class="employee-wrapper__position-name">{{chosenEmployee.fullName}}</span>
-                <span class="employee-wrapper__position-shops">{{chosenEmployee.shops.length}} магазинов</span>
+                <span class="employee-wrapper__position-shops">{{chosenEmployee.shops.length}} {{getWord(chosenEmployee.shops.length, ['магазин', 'магазина', 'магазинов'])}}</span>
             </div>
             <img (click)="removeEmployee(chosenEmployee.id)" class="employee-wrapper__position-basket" src="../../assets/image/basket.svg">
         </div>
