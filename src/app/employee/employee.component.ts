@@ -39,7 +39,7 @@ export class EmployeeComponent implements OnInit, OnDestroy {
    * Добавляет выбранного сотрудника во вкладку
    */
   addEmployee(): void {
-    const dialogref = this.dialog.open(EmployeeDialogComponent);
+    const dialogref = this.dialog.open(EmployeeDialogComponent, {data: this.selectedEmployees});
     dialogref.afterClosed()
     .pipe(takeUntil(this.destroyed$))
     .subscribe((result: Employee) => {
@@ -49,6 +49,7 @@ export class EmployeeComponent implements OnInit, OnDestroy {
         this.chosenEmployee = result;
       }
     })
+
     this.shopsService.isSelectedEmployees.next(true)
   }
 
@@ -108,7 +109,7 @@ export class EmployeeComponent implements OnInit, OnDestroy {
    * Склоняем существительное в зависимости от числительного
    */
   getWord(number: number, word:string[]): string {
-    const cases = [2, 0, 1, 1, 1, 2];  
-    return word[ (number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5] ]; 
+    const cases = [2, 0, 1, 1, 1, 2];
+    return word[ (number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5] ];
   }
 }
